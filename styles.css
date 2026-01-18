@@ -1,0 +1,503 @@
+/* CSS Custom Properties for Theme Management */
+:root {
+  /* Light Theme Colors */
+  --primary-color: #000000;
+  --secondary-color: #666666;
+  --background-color: #2b2b2b;
+  --surface-color: #ffffff;
+  --accent-color: #0066cc;
+  --border-color: #e0e0e0;
+  --hover-color: #f5f5f5;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+.darkmode{
+  /* Dark Theme Colors */
+  --primary-color: #e0e0e0;
+  --secondary-color: #b0b0b0;
+  --background-color: #3e3e3e;
+  --surface-color: #2d2d2d;
+  --accent-color: #4da6ff;
+  --border-color: #404040;
+  --hover-color: #3a3a3a;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', serif;
+  line-height: 1.35;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 10pt;
+}
+
+.container {
+  width: 8.5in;
+  height: 11in;
+  margin: 0 auto;
+  padding: 0.6in;
+  background-color: var(--surface-color);
+  box-shadow: 0 0 20px var(--shadow-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Page Management */
+.page {
+  margin-bottom: 2rem;
+}
+
+.page:not(:last-child) {
+  page-break-after: always;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.7rem;
+  position: relative;
+  gap: 0.5rem;
+}
+
+.page2-header {
+  margin-bottom: 0.5rem;
+}
+
+.page2-header .profile-picture-template {
+  display: none;
+}
+
+.profile-picture-template {
+  width: 1.2in;
+  height: 1.2in;          /* TRUE 1x1 */
+  min-width: 1.2in;
+  min-height: 1.2in;
+
+  border-radius: 8px;
+  overflow: hidden;      /* IMPORTANT */
+  border: 2px solid var(--border-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  flex-shrink: 0;
+}
+
+.profile-picture-template img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* Crop, not stretch */
+  object-position: center;
+  display: block;
+}
+
+
+.placeholder-content {
+  color: var(--secondary-color);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.header-content {
+  flex: 1;
+  text-align: left;
+  margin-top: 2rem;
+  margin-left: 30px;
+}
+
+.name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: var(--primary-color);
+  line-height: 0.95;
+  text-align: left;
+}
+
+.contact-info {
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  line-height: 1.0;
+}
+
+.contact-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.theme-switch{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 100%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    right: 20px;
+    
+}
+
+.theme-switch svg{
+  fill:var(--primary-color);
+}
+
+.theme-switch svg:last-child{
+ display: none;
+}
+
+.darkmode .theme-switch svg:first-child{
+ display: none;
+}
+
+.darkmode .theme-switch svg:last-child{
+ display: block;
+}
+
+
+
+/* Section Styles */
+.section {
+  margin-bottom: 0.7rem;
+}
+
+.section-title {
+  font-size: 1.0rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--primary-color);
+  line-height: 1.0;
+}
+
+.section-content {
+  margin-left: 0;
+}
+
+/* Entry Styles */
+.entry {
+  margin-bottom: 0.6rem;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.entry-left {
+  flex: 1;
+}
+
+.entry-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.institution,
+.job-title,
+.project-name {
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin-bottom: 0.1rem;
+  color: var(--primary-color);
+  line-height: 1.0;
+}
+
+.degree,
+.company,
+.technologies {
+  font-style: italic;
+  color: var(--secondary-color);
+  margin-bottom: 0.1rem;
+  font-size: 0.85rem;
+  line-height: 1.0;
+}
+
+.location,
+.dates {
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+  line-height: 1.0;
+}
+
+.responsibilities {
+  list-style-type: disc;
+  margin-left: 1.0rem;
+  margin-top: 0.25rem;
+}
+
+.responsibilities li {
+  margin-bottom: 0.1rem;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+/* Skills Section */
+skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+.skill-category {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+.skill-category strong {
+  color: var(--primary-color);
+}
+
+/* Page Navigation */
+.page-navigation {
+  position: absolute;
+  bottom: 0.3in;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  font-size: 0.85rem;
+  font-family: 'Times New Roman', serif;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.nav-btn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px var(--shadow-color);
+}
+
+.nav-btn:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.page-indicator {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  font-style: italic;
+}
+
+/* Interactive Elements */
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    height: auto;
+    padding: 0.5in;
+    margin: 0;
+    box-shadow: none;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .profile-picture-template {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .header-content {
+    margin-top: 0.5rem;
+  }
+  
+  .name {
+    font-size: 2rem;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+  }
+  
+  .entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .entry-right {
+    text-align: left;
+    margin-top: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    height: auto;
+    padding: 0.25in;
+  }
+  
+  .profile-picture-template {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .name {
+    font-size: 1.75rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+  
+  .institution,
+  .job-title,
+  .project-name {
+    font-size: 1rem;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print PDF Button */
+.print-pdf-container {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 8.5in;
+}
+
+.print-pdf-btn {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-family: 'Times New Roman', serif;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.print-pdf-btn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.print-pdf-btn:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.print-pdf-btn:active {
+  transform: translateY(0);
+}
+
+/* Print Styles */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .theme-switch,
+  .print-pdf-container,
+  .page-navigation {
+    display: none !important;
+  }
+
+  .page {
+    page-break-after: always;
+    margin-bottom: 0;
+  }
+  
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  
+  .container {
+    width: 8.5in;
+    height: 11in;
+    margin: 0;
+    padding: 0.6in;
+    box-shadow: none;
+    page-break-after: avoid;
+  }
+  
+  .entry:hover {
+    background-color: transparent;
+    padding: 0;
+  }
+  
+  /* Ensure content fits on pages */
+  .section {
+    page-break-inside: avoid;
+    margin-bottom: 0.7rem;
+  }
+  
+  .entry {
+    page-break-inside: avoid;
+    margin-bottom: 0.6rem;
+  }
+  
+  /* Optimize print spacing */
+  .header {
+    margin-bottom: 0.7rem;
+  }
+  
+  .responsibilities li {
+    margin-bottom: 0.1rem;
+  }
+  
+  .section-title {
+    margin-bottom: 0.3rem;
+  }
+}
